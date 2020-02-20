@@ -9,7 +9,7 @@ import org.joda.time.DateTime
 
 /**
  * Created by Velmurugan on 18/02/2020.
- *
+ * Configuration parameter Defined related to application
  */
 trait Context{
 
@@ -18,6 +18,7 @@ trait Context{
   sparkSession.sparkContext.hadoopConfiguration.set("mapreduce.fileoutputcommitter.marksuccessfuljobs", FALSE)
   sparkSession.sparkContext.hadoopConfiguration.set("parquet.enable.summary-metadata", FALSE)
   Logger.getLogger("org").setLevel(Level.ERROR)
+
   val startTime:DateTime= DateTime.now()
 
   // Colors German & English - It can be generated once or read from database

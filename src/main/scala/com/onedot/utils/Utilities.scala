@@ -12,6 +12,9 @@ import scala.io.Source
  */
 object Utilities extends App{
 
+  /*
+  Method to calculate Runtime in seconds
+   */
   def calculateRunTime(startDate: DateTime, endDate: DateTime): String =
     Seconds.secondsBetween(startDate, endDate).toString().substring(2)
 

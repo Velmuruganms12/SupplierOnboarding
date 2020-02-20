@@ -15,8 +15,9 @@ import com.onedot.utils.DataFrameUtils.orderColumns
 object OnboardingPipelineApp extends App with Context {
 
 
-  // Input Data
+
   println("starting application  " + Utilities.calculateRunTime(startTime, DateTime.now()))
+  // Input Data
   val supplierInputdata = sparkSession.read.option("inferSchema", TRUE).json("inputdata/supplier_car.json")
 
 
@@ -59,9 +60,18 @@ object OnboardingPipelineApp extends App with Context {
     .withColumnRenamed("City", "city")
     .withColumnRenamed("ModelText", "modal")
     .withColumnRenamed("BodyTypeText", "modal_variant")
+    //Todo Other Attributes Calculation
     .withColumn("mileage", lit(0))
     .withColumn("mileage_unit", lit(""))
     .withColumn("price_on_request", lower(lit(false)))
+    .withColumn("carType", lit(""))
+    .withColumn("condition", lit(""))
+    .withColumn("currency", lit(""))
+    .withColumn("drive", lit(""))
+    .withColumn("country", lit(""))
+    .withColumn("mileage", lit(0))
+    .withColumn("mileage_unit", lit(""))
+    .withColumn("price_on_request", lit(false))
     .withColumn("type", lit("car"))
     .withColumn("zip", lit(""))
     .withColumn("manufacture_month", lit(""))
@@ -72,11 +82,13 @@ object OnboardingPipelineApp extends App with Context {
   val integratedDF = DataFrameUtils.selectColumns(List("carType", "color", "condition", "currency", "drive",
     "city", "country", "make", "manufacture_year", "mileage", "mileage_unit", "modal", "modal_variant", "price_on_request", "type", "zip", "manufacture_month", "fuel_consumption_unit"), df)
 
-  DataFrameUtils.writeDataframe(orderColumns(integratedDF), "Integrated-supplierdata")
+  DataFrameUtils.writeDataframe(integratedDF, "Integrated-supplierdata")
   println(" after  Integration step " + Utilities.calculateRunTime(startTime, DateTime.now()))
 
 
-  //Product Matching - Enrich or Add new
-  //FeatureTransformation.matchTargetData(startTime,sparkSession,integratedDF)
+  //Product Matching
+  //ML & NLP needed to be implement for String match for Modal & Modal Variant
+  //Identify new or Existing data based on following attributes - Make, Color,City
+  FeatureTransformation.matchTargetData(startTime,sparkSession,integratedDF)
 
 }
