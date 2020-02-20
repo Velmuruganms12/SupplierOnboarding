@@ -1,4 +1,4 @@
-# SupplierOnboarding
+# ProductOnboarding
 Application for Onboarding new Supplier Product
 
 
