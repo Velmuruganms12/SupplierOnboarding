@@ -10,7 +10,7 @@ import scala.io.Source
  * Created by Velmurugan on 18/02/2020.
  *
  */
-object Utilities extends App{
+object Utilities {
 
   /*
   Method to calculate Runtime in seconds
