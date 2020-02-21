@@ -11,7 +11,7 @@ Application for Onboarding new Supplier Product Data
   
   #### Normalisation
   Color attribute translated to English for matching with target data.
-  Make attribute Matched with target data by chaging the text Captial case for first Character.
+  Make attribute Matched with target data by chaging the text to Title case.
   
   #### Extraction
   Unit and value extracted from ComsumptionTotalText attribute.
