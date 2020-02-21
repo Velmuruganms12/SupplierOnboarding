@@ -6,24 +6,25 @@ Application for Onboarding new Supplier Product Data
 ![pipeline](https://github.com/Velmuruganms12/SupplierOnboarding/blob/master/Onboarding-DFD.jpg)
 
   #### Pre-Processing
-  Read the input data from JSON and converted Inputdata Attributes from Row to Columns for matching with target data 
+  Read the input data from JSON and convert Input source attributes from Row to Columns, for matching with target data.
   
   
   #### Normalisation
   Color attribute translated to English for matching with target data.
-  Make attribute Matched with target data by chaging the text to first Letter to Captial case 
+  Make attribute Matched with target data by chaging the text Captial case for first Character.
   
   #### Extraction
-  Unit and value extracted from ComsumptionTotalText attribute
+  Unit and value extracted from ComsumptionTotalText attribute.
   
   
   #### Integration
-  Rename exist column & creating new column to match Target Schema
-  Selecting Specific Column to Match Target Schema
+  - Rename exist column & creating new column to match Target Schema.
+  - Selecting Specific Column to Match Target Schema.
   
   #### Product Matching
-  ML & NLP needed to be implement for Modal & Modal Variant.
-  Identify new or Existing data based on following attributes - Make, Color,City
+  - Machine Learning & NLP needed to be implement for Modal & Modal Variant as text are in different pattern.
+  - Identified new or Existing data based on following attributes - Make, Color and City.
+  - Delta lake can be used to merge existing records and maintaining the version.
   
 
 
