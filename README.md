@@ -1,8 +1,33 @@
-# Product Onboarding
+### Product Onboarding
 Application for Onboarding new Supplier Product
 
 
-compile the project:
+
+![pipeline](https://github.com/Velmuruganms12/SupplierOnboarding/blob/master/Onboarding-DFD.jpg)
+
+  #### Pre-Processing
+  Read the input data from JSON and converted Inputdata Attributes from Row to Columns for matching with target data 
+  
+  
+  #### Normalisation
+  Color attribute translated to English for matching with target data.
+  Make attribute Matched with target data by chaging the text to first Letter to Captial case 
+  
+  #### Extraction
+  Unit and value extracted from ComsumptionTotalText attribute
+  
+  
+  #### Integration
+  Rename exist column & creating new column to match Target Schema
+  Selecting Specific Column to Match Target Schema
+  
+  #### Product Matching
+  ML & NLP needed to be implement for Modal & Modal Variant.
+  Identify new or Existing data based on following attributes - Make, Color,City
+  
+
+
+#### Compile the project:
 
 $ sbt compile
 
@@ -12,8 +37,14 @@ $ sbt run
 
 
 
-Spark Version 2.4.0
 
 
-Running Spark on Local mode 
- lazy val sparkConf = new SparkConf().setAppName("OnboardingApp").setMaster("local[*]").set("spark.cores.max", "2")
+
+
+### Dependencies :
+Spark Version : 2.4.0
+
+Scala : 2.12.8
+
+Spark-excel : 0.12.3
+
