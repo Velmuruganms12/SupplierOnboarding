@@ -1,5 +1,5 @@
 ### Product Onboarding
-Application for Onboarding new Supplier Product
+Application for Onboarding new Supplier Product Data
 
 
 
